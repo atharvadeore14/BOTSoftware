@@ -103,11 +103,27 @@
         longitude = parseFloat(data.feeds[0].field2.slice(0, 5));
       }
 
-
-      
-      
-
       //plot map function
+      async function plot_map(){
+        await fetch_latitude_Text();
+        await fetch_longitude_Text();
+        console.log("Latitude: ")
+        console.log(latitude);
+        console.log(longitude);
+        let lat = latitude;
+        let lon = longitude;
+        
+
+        mapboxgl.accessToken =
+        "pk.eyJ1Ijoicm9oaXQ3MjAxIiwiYSI6ImNreWg3dHhvcDA2Zm8ydnFvZ2luMmMyMm8ifQ.q_6EfAS_KvBwHZxN06EkvA";
+      const map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/mapbox/streets-v11",
+        center: [lat, lon],
+        zoom: 8,
+      });
+
+      
 
       Create a default Marker and add it to the map.
       const marker1 = new mapboxgl.Marker()
