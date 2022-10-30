@@ -1,0 +1,1 @@
+web: waitress-serve --port=$PORT EDI_website.wsgi:application
